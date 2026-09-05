@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPIntro", "OOPIntro\OOPIntro.csproj", "{87EB9343-2C07-4873-8F92-C82AC85CD881}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{9AFE3FAF-B96D-4E59-A1BE-70281B391A6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{87EB9343-2C07-4873-8F92-C82AC85CD881}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87EB9343-2C07-4873-8F92-C82AC85CD881}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87EB9343-2C07-4873-8F92-C82AC85CD881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFE3FAF-B96D-4E59-A1BE-70281B391A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFE3FAF-B96D-4E59-A1BE-70281B391A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFE3FAF-B96D-4E59-A1BE-70281B391A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFE3FAF-B96D-4E59-A1BE-70281B391A6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
