@@ -5,10 +5,8 @@ class Program
     
     static void Main(string[] args)
     {
-        ExerciseOOPWebsiteGenerator htmlGenerator = new ExerciseOOPWebsiteGenerator();
-        
-        string html = htmlGenerator.GenerateHTMLTemplate("Klass 26",[]);
-        
+        ExerciseOopWebsiteGenerator generator = new ExerciseOopWebsiteGenerator();
+        string html = generator.GenerateHtmlTemplate();
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(html);
         Console.ForegroundColor = ConsoleColor.White;
