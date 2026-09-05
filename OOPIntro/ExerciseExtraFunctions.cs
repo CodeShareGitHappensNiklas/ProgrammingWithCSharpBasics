@@ -5,7 +5,7 @@ namespace OOPIntro;
 // Call the method from main.
 public class ExerciseExtraFunctions
 {
-    private void DisplayMessage(string message)
+    public void DisplayMessage(string message)
     {
         Console.WriteLine(message);
     }

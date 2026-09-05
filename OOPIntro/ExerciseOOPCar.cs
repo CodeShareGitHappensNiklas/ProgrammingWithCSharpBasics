@@ -1,7 +1,7 @@
 ﻿namespace OOPIntro;
 
 // Exercise OOP - Car
-public class Car
+public class ExerciseOOPCar
 {
     //Create field/properties, i.e. maxSpeed, currentSpeed
     public string Model = "BMW";
