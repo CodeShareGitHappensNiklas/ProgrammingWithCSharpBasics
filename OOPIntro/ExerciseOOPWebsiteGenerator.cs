@@ -8,6 +8,7 @@ namespace OOPIntro;
     // Call the appropriate methods to generate the HTML and show it in the console.
 // Do you see any parts that can be refactored into fields/properties?
     // Split the class into fields (containing data with default values) and methods.
+
 public class ExerciseOopWebsiteGenerator
 {
     public string ClassName= "class";
@@ -42,4 +43,5 @@ public class ExerciseOopWebsiteGenerator
         }
         return message;
     }
+    
 }
