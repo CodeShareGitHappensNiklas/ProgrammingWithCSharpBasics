@@ -20,32 +20,50 @@ namespace OOPIntro;
 
 public class ExerciseOopTicTacToe
 {
-    private string[] board =
+    private static string[] board =
     [
         "|' '|", "|' '|", "|' '|",
         "|' '|", "|' '|", "|' '|",
         "|' '|", "|' '|", "|' '|"
     ];
 
-    private string[] players = ["X", "O"];
-    private int currentPlayer = 0;
-    private int placeCounter = 0;
+    private string[] PlayerMarks = ["|'X'|", "|'0'|"];
+    private int CurrentPlayer = 0;
+    private int PlaceCounter = board.Length;
+    private bool GameOver = false;
 
 
     public void Game()
     {
-        bool gameOver = false;
         ShowBoard();
-        while (!gameOver)
+
+        while (!GameOver)
         {
-            // board[Placement()-1] = $"|'{players[currentPlayer]}'|";
+            PlaceMark();
             ShowBoard();
-            placeCounter--;
-            if (placeCounter == 0) gameOver = true;
-            SwitchPlayer();
+            WinConditions();
+            if (PlaceCounter == 0)
+            {
+                Console.WriteLine("\nIt's a Draw!");
+                GameOver = true;
+            }
         }
     }
-
+    private void PlaceMark()
+    {
+        int index = Int32.Parse(Console.ReadKey().KeyChar.ToString()) - 1;
+        if (board[index] == "|' '|")
+        {
+            board[index] = PlayerMarks[CurrentPlayer];
+            PlaceCounter--;
+            SwitchPlayer();
+        }
+        else
+        {
+            Console.WriteLine($"\n\nCan't place mark on square {index+1}.\n" +
+                              $"Please pick another square.");
+        }
+    }
     private void ShowBoard()
     {
         string rows = "\n";
@@ -62,23 +80,56 @@ public class ExerciseOopTicTacToe
             slotCounter++;
         }
 
+        Console.WriteLine($"\nPlayer {CurrentPlayer + 1}'s turn");
         Console.WriteLine(rows);
     }
-
-    private void PlaceMark()
+    private void WinConditions()
     {
-        int number = Int32.Parse(Console.ReadKey().KeyChar.ToString());
+        /*TODO: Add a win condition when one of the rows, columns,
+         or diagonals get three of the same characters in a row*/
+        string[] rows =
+        [
+            board[0] + board[1] + board[2],
+            board[3] + board[4] + board[5],
+            board[6] + board[7] + board[8]
+        ];
+        string[] columns =
+        [
+            board[0] + board[3] + board[6],
+            board[1] + board[4] + board[7],
+            board[2] + board[5] + board[8]
+        ];
+        string[] diagonals =
+        [
+            board[0] + board[4] + board[8],
+            board[2] + board[4] + board[6]
+        ];
+        for (int i = 0; i < rows.Length; i++)
+        {
+            rows[i] = CleanString(rows[i]);
+            columns[i] = CleanString(columns[i]);
+            if (i < diagonals.Length)
+            {
+                diagonals[i] = CleanString(diagonals[i]);
+            }
+        }
+        Console.WriteLine($"\nRow 1: {rows[0]}\nRow 2: {rows[1]}\nRow 3: {rows[2]}");
+        Console.WriteLine($"\nCol 1: {columns[0]}\nCol 2: {columns[1]}\nCol 3: {columns[2]}");
+        Console.WriteLine($"\nDiag 1: {diagonals[0]}\nDiag 2: {diagonals[1]}");
     }
-
+    private string CleanString(string input)
+    {
+        return input.Replace("|", "").Replace("'", "");
+    }
     private void SwitchPlayer()
     {
-        switch (currentPlayer)
+        switch (CurrentPlayer)
         {
             case 0:
-                currentPlayer = 1;
+                CurrentPlayer = 1;
                 break;
             case 1:
-                currentPlayer = 0;
+                CurrentPlayer = 0;
                 break;
         }
     }
