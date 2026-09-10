@@ -17,72 +17,81 @@ namespace OOPIntro;
 //     }
 // }
 
-
-// Interfaces
+#region Interfaces
 public interface IAnimal
 {
     string Name { get; set; }
     string Sound { get; set; }
     string Sleep { get; set; }
-    string Move { get; set; }
-    string[] Properties { get; set; }
-    void DisplayProperties();
+    string[] GetProperties();
+    void DisplayProperties(string[] properties);
 }
-
+public interface IFourLegs
+{
+    string FourLeggedRun { get; set; }
+}
 public interface IFlyer
 {
     string Nesting { get; set; }
 }
-//Abstract class
+#endregion
+
+#region Abstract classes
 public abstract class Animal : IAnimal
 {
     public string Name { get; set; }
     public string Sound { get; set; }
     public string Sleep { get; set; }
-    public string Move { get; set; }
-    public string[] Properties { get; set; }
-
-    public Animal()
+    protected Animal(string name, string sound, string sleep)
     {
-        Name = "Animal";
-        Sound = "Makes sounds.";
-        Sleep = "Sleeps.";
-        Move = "Moves.";
-        Properties = [Name,Sound,Sleep,Move];
+        Name = name;
+        Sound = sound;
+        Sleep = sleep;
     }
-
-    public virtual void DisplayProperties()
+    public virtual string[] GetProperties()
     {
-        foreach (var property in Properties)
+        return [Name,Sound,Sleep];
+    }
+    public void DisplayProperties(string[] properties)
+    {
+        Console.WriteLine("");
+        foreach (string property in properties)
         {
             Console.WriteLine(property);
         }
     }
 }
-//Inherited class
-public class Dog : Animal
-{
-    public Dog()
-    {
-        Name = "Dog";
-        Sound = "Woof Woof.";
-        Sleep = "Sleeps on back.";
-        Move = "Runs on all fours";
-        Properties = [Name,Sound,Sleep,Move];
-    }
-}
+#endregion
 
-public class Bird : Animal, IFlyer
+#region Inheriting classes
+public class Dog : Animal, IFourLegs
 {
-    public string Nesting { get; set; }
+    public string FourLeggedRun { get; set; }
     
-    public Bird()
+    public Dog() : base("Dog.", "Woof woof!", "Sleeps on back.")
     {
-        Name = "Bird.";
-        Sound = "Chirp Chirp.";
-        Sleep = "Sleeps curled up.";
-        Move = "Flies in the air.";
-        Nesting = "Builds nests..";
-        Properties = [Name,Sound,Sleep,Move,Nesting];
+        FourLeggedRun = "Runs on four legs.";
+    }
+
+    public override string[] GetProperties()
+    {
+        return [Name,Sound,Sleep,FourLeggedRun];
     }
 }
+public class Cat : Animal, IFourLegs
+{
+    public string FourLeggedRun { get; set; }
+    
+    public Cat() : base("Cat.", "Mjau.", "Sleeps in bed.")
+    {
+        FourLeggedRun = "Runs (gracefully) on four legs.";
+    }
+
+    public override string[] GetProperties()
+    {
+        return [Name,Sound,Sleep,FourLeggedRun];
+    }
+
+}
+#endregion
+
