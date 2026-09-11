@@ -1,4 +1,5 @@
 namespace OOPIntro;
+#region info
 // Exercise - Interface IAnimal
 // Recreate the following abstraction with an interface
 //https://www.w3schools.com/cs/cs_abstract.php
@@ -16,6 +17,17 @@ namespace OOPIntro;
 //         Console.WriteLine("Zzz");
 //     }
 // }
+
+// Breakdown of interfaces, abstracts, and inheriting classes:
+// An interface: A contract which describes requirements for any class which implements it.
+// class:interface -> The class must implement the contract defined in the interface.
+
+// An abstract class: Holds the abstract logic for handling data.
+// class:abstract -> The inheriting class has access to the logic of the abstract parent. 
+// The data in the class constructor gets passed to the abstract parent constructor. 
+// The data is then operated on according to the instructions in the abstract class.
+
+#endregion
 
 #region Interfaces
 public interface IAnimal
