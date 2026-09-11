@@ -27,6 +27,12 @@ namespace OOPIntro;
 // The data in the class constructor gets passed to the abstract parent constructor. 
 // The data is then operated on according to the instructions in the abstract class.
 
+// Application structure breakdown:
+// [ Interface ]          <-- 1. The Pure Contract (What can it do?)
+//      ▲
+// [ Abstract Class ]     <-- 2. & 3. The Engine Room (Shared data & base logic)
+//      ▲
+// [ Inheriting Class ]   <-- 4. & 5. The Specialist (User-facing actions & tweaks)
 #endregion
 
 #region Interfaces
